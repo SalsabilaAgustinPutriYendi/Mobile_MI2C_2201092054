@@ -115,7 +115,6 @@ class Company {
     required this.bs,
   });
 
-
   factory Company.fromJson(Map<String, dynamic> json) => Company(
     name: json["name"],
     catchPhrase: json["catchPhrase"],
