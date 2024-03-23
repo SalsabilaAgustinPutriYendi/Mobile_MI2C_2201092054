@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class PageMI extends StatelessWidget {
   const PageMI({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 
 import '../model/Model_berita.dart';
 
-
 class DetailBerita extends StatelessWidget {
   final Datum? data;
   const DetailBerita(this.data, {super.key});

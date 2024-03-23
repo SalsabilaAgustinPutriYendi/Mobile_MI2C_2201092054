@@ -67,7 +67,6 @@ class _PageLoginState extends State<PageLogin> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
