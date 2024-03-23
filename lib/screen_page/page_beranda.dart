@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:project1mobilelanjut/screen_page/page_botton_navigation.dart';
+import 'package:project1mobilelanjut/screen_page/page_list_berita.dart';
+import 'package:project1mobilelanjut/screen_page/page_list_users.dart';
 import 'package:project1mobilelanjut/screen_page/page_navigation_bar.dart';
+import 'package:project1mobilelanjut/screen_page/page_search_list.dart';
 
 
 class PageBeranda extends StatelessWidget {
@@ -136,15 +139,98 @@ class PageBeranda extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PageBottomNavigationBar ()));
+                            builder: (context) => PageSearchList ()));
                   },
                   child: Text(
-                    'Buttom Navigation Bar',
+                    'Buttom Search List',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                   ),
                   color: Colors.green,
                   textColor: Colors.white,
                 ),
+
+                SizedBox(
+                  height: 10,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
+                    );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageListUsers()));
+                  },
+                  child: Text(
+                    'Buttom List Users',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.green,
+                  textColor: Colors.white,
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("ini adalah pesan snackbar"),
+                        backgroundColor: Colors.orange,
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Snackbar',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.lightGreen,
+                  textColor: Colors.white,
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
+                    );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageListBerita()));
+                  },
+                  child: Text(
+                    'Buttom List berita',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.green,
+                  textColor: Colors.white,
+                ),
+
+
+
+
+
               ],
             ),
           )),

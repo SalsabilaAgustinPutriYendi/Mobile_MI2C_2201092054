@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project1mobilelanjut/screen_page/page_colum.dart';
 import 'package:project1mobilelanjut/screen_page/page_custome_grid.dart';
 import 'package:project1mobilelanjut/screen_page/page_form_register.dart';
+import 'package:project1mobilelanjut/screen_page/page_search_list.dart';
 
 
 class PageBottomNavigationBar extends StatefulWidget {
@@ -34,7 +35,7 @@ class _PageBottomNavigationBarState extends State<PageBottomNavigationBar> with 
         children: const [
           PageFormRegister(),
           PageCustomeGrid(),
-          PageColumnRow()
+          PageSearchList()
         ],
       ),
 
