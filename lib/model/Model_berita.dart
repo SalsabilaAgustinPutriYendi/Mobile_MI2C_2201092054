@@ -19,6 +19,7 @@ class ModelBerita {
     required this.data,
   });
 
+
   factory ModelBerita.fromJson(Map<String, dynamic> json) => ModelBerita(
     isSuccess: json["isSuccess"],
     message: json["message"],

@@ -95,6 +95,7 @@ class _PageSearchListState extends State<PageSearchList> {
     return HasilSearch();
   }
 
+
   Widget HasilSearch(){
     return Expanded(
       child: ListView.builder(

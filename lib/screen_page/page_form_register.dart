@@ -5,6 +5,7 @@ class PageFormRegister extends StatefulWidget {
   @override
   State<PageFormRegister> createState() => _FormRegisterState();
 }
+
 class _FormRegisterState extends State<PageFormRegister> {
   String? valAgama, valJk;
   TextEditingController fullname = TextEditingController();

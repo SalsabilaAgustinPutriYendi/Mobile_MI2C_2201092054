@@ -47,6 +47,7 @@ class PageNavigationBar extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => PageColumn()));
                 },
+
               ),
               Divider(),
               ListTile(

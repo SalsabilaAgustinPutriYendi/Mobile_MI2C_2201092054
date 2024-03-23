@@ -214,6 +214,7 @@ class PageBeranda extends StatelessWidget {
                       fullWidth: true,
                     );
 
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
