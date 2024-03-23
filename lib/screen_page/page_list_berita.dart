@@ -26,6 +26,7 @@ class _PageListBeritaState extends State<PageListBerita> {
       );
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
