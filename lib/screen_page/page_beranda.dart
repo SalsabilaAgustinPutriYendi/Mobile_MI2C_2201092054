@@ -4,7 +4,9 @@ import 'package:project1mobilelanjut/screen_page/page_botton_navigation.dart';
 import 'package:project1mobilelanjut/screen_page/page_list_berita.dart';
 import 'package:project1mobilelanjut/screen_page/page_list_users.dart';
 import 'package:project1mobilelanjut/screen_page/page_navigation_bar.dart';
+import 'package:project1mobilelanjut/screen_page/page_passing_data.dart';
 import 'package:project1mobilelanjut/screen_page/page_search_list.dart';
+import 'package:project1mobilelanjut/screen_page/register_api.dart';
 
 
 class PageBeranda extends StatelessWidget {
@@ -183,18 +185,27 @@ class PageBeranda extends StatelessWidget {
                 ),
                 MaterialButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text("ini adalah pesan snackbar"),
-                        backgroundColor: Colors.orange,
-                      ),
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
                     );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageListBerita()));
                   },
                   child: Text(
-                    'Snackbar',
+                    'Buttom List berita',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                   ),
-                  color: Colors.lightGreen,
+                  color: Colors.green,
                   textColor: Colors.white,
                 ),
 
@@ -217,10 +228,39 @@ class PageBeranda extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PageListBerita()));
+                            builder: (context) => PageRegisterApi()));
                   },
                   child: Text(
-                    'Buttom List berita',
+                    'Register',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.green,
+                  textColor: Colors.white,
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
+                    );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageLogin()));
+                  },
+                  child: Text(
+                    'Login',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                   ),
                   color: Colors.green,
