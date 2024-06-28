@@ -23,7 +23,7 @@ class DetailBerita extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                'http://192.168.188.194/Mobile/beritaDb/gambar_berita/${data?.gambarBerita}',
+                'http://192.168.1.85/Mobile/beritaDb/gambar_berita/${data?.gambarBerita}',
                 fit: BoxFit.fill,
               ),
             ),
@@ -65,7 +65,7 @@ class _PageListBeritaState extends State<PageListBerita> {
   Future<List<Datum>?> getBerita() async {
     try {
       http.Response response = await http
-          .get(Uri.parse('http://192.168.188.194/Mobile/beritaDb/getBerita.php'));
+          .get(Uri.parse('http://192.168.1.85/Mobile/beritaDb/getBerita.php'));
       return modelBeritaFromJson(response.body).data;
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -82,7 +82,7 @@ class _PageListBeritaState extends State<PageListBerita> {
 
   //untuk mendapatkan data sesi
   Future getDataSession() async {
-    await Future.delayed(const Duration(seconds: 5), () {
+    await Future.delayed(const Duration(seconds: 1), () {
       session.getSession().then((value) {
         print('data sesi .. ' + value.toString());
         userName = session.userName;
@@ -147,7 +147,7 @@ class _PageListBeritaState extends State<PageListBerita> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.network(
-                                  'http://192.168.118.231/beritaDb/gambar_berita/${data?.gambarBerita}',
+                                  'http://192.168.1.85/Mobile/beritaDb/gambar_berita/${data?.gambarBerita}',
                                   fit: BoxFit.fill,
                                 ),
                               ),

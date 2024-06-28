@@ -1,8 +1,11 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1mobilelanjut/model/Model_register.dart';
-import 'package:project1mobilelanjut/screen_page/page_login_api.dart';
 import 'package:http/http.dart' as http;
+import 'package:project1mobilelanjut/screen_page/page_login_api.dart';
+
+import '../model/Model_register.dart';
+
 
 
 class PageRegisterApi extends StatefulWidget {
@@ -21,64 +24,57 @@ class _PageRegisterApiState extends State<PageRegisterApi> {
   TextEditingController txtEmail = TextEditingController();
 
   //validasi form
-  GlobalKey<FormState> keyForm= GlobalKey<FormState>();
+  GlobalKey<FormState> keyForm = GlobalKey<FormState>();
 
   //proses untuk hit api
   bool isLoading = false;
-  Future<ModelRegister?> registerAccount() async{
-    //handle error
-    try{
+  Future<ModelRegister?> registerAccount() async {
+    try {
       setState(() {
         isLoading = true;
       });
-
       http.Response response = await http.post(Uri.parse('http://192.168.188.194/Mobile/beritaDb/register.php'),
           body: {
+            "fullname": txtFullName.text,
             "username": txtUsername.text,
             "password": txtPassword.text,
-            "fullname": txtFullName.text,
-            "email": txtEmail.text,
-          }
-      );
+            "email": txtEmail.text
+          });
       ModelRegister data = modelRegisterFromJson(response.body);
-      //cek kondisi
-      if(data.value == 1){
-        //kondisi ketika berhasil register
+      if (data.value == 1) {
         setState(() {
           isLoading = false;
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${data.message}'))
-          );
-
-          //pindah ke page login
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)
-          => PageLoginApi()
-          ), (route) => false);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content:
+          Text("${data.message}")));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => const
+              PageLoginApi()),
+                  (route) => false);
         });
-      }else if(data.value == 2){
+      } else if (data.value == 2) {
         //kondisi akun sudah ada
         setState(() {
           isLoading = false;
           ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${data.message}'))
+              SnackBar(content: Text("${data.message}"))
           );
         });
-      }else{
+      } else {
         //gagal
         setState(() {
           isLoading = false;
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${data.message}'))
-          );
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content:
+          Text("${data.message}")));
         });
       }
-
-    }catch (e){
+    } catch (e) {
       setState(() {
         isLoading = false;
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(e.toString()))
-        );
+            SnackBar(content: Text(e.toString())));
       });
     }
   }
@@ -190,7 +186,7 @@ class _PageRegisterApiState extends State<PageRegisterApi> {
             => PageLoginApi()
             ));
           },
-          child: Text('Anda sudah punya account? Silakan Login'),
+          child: Text('Anda sudah punya account? Silkan Login'),
         ),
       ),
     );
